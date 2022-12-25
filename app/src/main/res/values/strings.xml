@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">KotlinHW3</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_chats">Chats</string>
+    <string name="title_profile">Profile</string>
+
+    <style name="home_url">https://api.giphy.com/</style>
+    <style name="chats_url">https://api.giphy.com/</style>
+    <style name="profile_url">https://api.giphy.com/</style>
+</resources>
