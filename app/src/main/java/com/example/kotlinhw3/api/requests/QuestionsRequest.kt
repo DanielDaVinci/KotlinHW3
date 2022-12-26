@@ -14,6 +14,7 @@ interface QuestionsRequest
     suspend fun getItems(
         @Query("start") start: Int,
         @Query("end") end: Int,
+        @Query("status") status: String,
     ) : QuestionsResponse
 
     companion object

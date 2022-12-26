@@ -5,8 +5,8 @@ import com.example.kotlinhw3.R
 import com.example.kotlinhw3.api.providers.QuestionsProvider
 import com.example.kotlinhw3.api.requests.QuestionsRequest
 
-object QuestionsConnector
-{
+object QuestionsConnector {
+
     private lateinit var request : QuestionsRequest
 
     fun initialize(context: Context)

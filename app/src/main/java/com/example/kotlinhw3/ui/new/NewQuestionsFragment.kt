@@ -13,9 +13,6 @@ import com.example.kotlinhw3.ui.adapters.RVQuestionsListAdapter
 class NewQuestionsFragment : Fragment() {
 
     private var _binding: FragmentNewsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,7 +20,7 @@ class NewQuestionsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val ViewModel = ViewModelProvider(this).get(NewQuestionsViewModel::class.java)
+        val viewModel = ViewModelProvider(this).get(NewQuestionsViewModel::class.java)
 
         _binding = FragmentNewsBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -33,6 +30,13 @@ class NewQuestionsFragment : Fragment() {
         binding.fragmentNewsRv.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = rvAdapter
+        }
+
+        viewModel.addItems(10)
+
+        viewModel.questions.observe(viewLifecycleOwner){
+            if (it != null)
+                rvAdapter.addItems(it)
         }
 
 

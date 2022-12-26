@@ -12,9 +12,6 @@ import com.example.kotlinhw3.databinding.FragmentQuestionWithAnswersBinding
 class QWAsFragment : Fragment() {
 
     private var _binding: FragmentQuestionWithAnswersBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(

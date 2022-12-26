@@ -11,9 +11,6 @@ import com.example.kotlinhw3.databinding.FragmentHotsBinding
 class HotQuestionsFragment : Fragment() {
 
     private var _binding: FragmentHotsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
