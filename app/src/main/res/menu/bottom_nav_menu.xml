@@ -3,13 +3,13 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:icon="@drawable/ic_baseline_newspaper_24dp"
+        android:title="@string/title_news" />
 
     <item
         android:id="@+id/navigation_chats"
-        android:icon="@drawable/ic_baseline_chat_24dp"
-        android:title="@string/title_chats" />
+        android:icon="@drawable/ic_baseline_local_fire_department_24dp"
+        android:title="@string/title_hots" />
 
     <item
         android:id="@+id/navigation_profile"

@@ -1,4 +1,4 @@
-package com.example.kotlinhw3.ui.chats
+package com.example.kotlinhw3.ui.question_with_answers
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.kotlinhw3.databinding.FragmentChatsBinding
+import com.example.kotlinhw3.databinding.FragmentQuestionWithAnswersBinding
 
-class ChatsFragment : Fragment() {
+class QWAsFragment : Fragment() {
 
-    private var _binding: FragmentChatsBinding? = null
+    private var _binding: FragmentQuestionWithAnswersBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,14 +22,14 @@ class ChatsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(ChatsViewModel::class.java)
+        val notificationsViewModel =
+            ViewModelProvider(this).get(QWAsViewModel::class.java)
 
-        _binding = FragmentChatsBinding.inflate(inflater, container, false)
+        _binding = FragmentQuestionWithAnswersBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textDashboard
-//        dashboardViewModel.text.observe(viewLifecycleOwner) {
+//        val textView: TextView = binding.textNotifications
+//        notificationsViewModel.text.observe(viewLifecycleOwner) {
 //            textView.text = it
 //        }
         return root
