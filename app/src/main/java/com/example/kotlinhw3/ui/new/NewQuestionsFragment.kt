@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinhw3.databinding.FragmentNewsBinding
+import com.example.kotlinhw3.ui.adapters.RVQuestionsListAdapter
 
 class NewQuestionsFragment : Fragment() {
 
@@ -27,10 +28,12 @@ class NewQuestionsFragment : Fragment() {
         _binding = FragmentNewsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        binding.fragmentNewsRv.apply {
-//            layoutManager = LinearLayoutManager(context)
-//            adapter = mainAdapter
-//        }
+        val rvAdapter = RVQuestionsListAdapter()
+
+        binding.fragmentNewsRv.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = rvAdapter
+        }
 
 
 
