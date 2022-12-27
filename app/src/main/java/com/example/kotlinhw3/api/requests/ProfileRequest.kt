@@ -6,13 +6,14 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ProfileRequest
 {
-    @GET("profile/get/")
+    @GET("profile/get/{profile_id}")
     suspend fun getItem(
-        @Query("profile_id") id: Int,
+        @Path("profile_id") id: Int,
     ) : ProfileResponse
 
     companion object

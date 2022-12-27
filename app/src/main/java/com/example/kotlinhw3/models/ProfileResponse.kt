@@ -12,6 +12,12 @@ data class ProfileResponse(
     data class Item(
         @SerializedName("id") var id: Int = -1,
         @SerializedName("nickname") var nickname: String = "",
-        @SerializedName("user") var user_id: Int = -1,
-    ) : Parcelable
+        @SerializedName("user") var user: User = User(),
+    ) : Parcelable {
+
+        @Parcelize
+        data class User(
+            @SerializedName("username") var username: String = ""
+        ) : Parcelable
+    }
 }

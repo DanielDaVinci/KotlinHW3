@@ -7,17 +7,11 @@ import com.example.kotlinhw3.utils.connectors.QuestionsConnector
 
 class MainApplication : Application() {
 
-    companion object{
-        val profileConnector = ProfileConnector
-        val questionsConnector = QuestionsConnector
-        val answersConnector = AnswersConnector
-    }
-
     override fun onCreate()
     {
         super.onCreate()
-        profileConnector.initialize(this)
-        questionsConnector.initialize(this)
-        answersConnector.initialize(this)
+        QuestionsConnector.initialize(this)
+        ProfileConnector.initialize(this)
+        AnswersConnector.initialize(this)
     }
 }

@@ -7,13 +7,14 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface AnswersRequest
 {
-    @GET("answers/get/")
+    @GET("answers/get/{question_id}")
     suspend fun getItems(
-        @Query("question_id") id: Int,
+        @Path("question_id") id: Int,
     ) : AnswersResponse
 
     companion object

@@ -4,16 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_news">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_news"
         android:name="com.example.kotlinhw3.ui.new.NewQuestionsFragment"
         android:label="@string/title_news"
         tools:layout="@layout/fragment_news" />
 
     <fragment
-        android:id="@+id/navigation_chats"
+        android:id="@+id/navigation_hots"
         android:name="com.example.kotlinhw3.ui.hot.HotQuestionsFragment"
         android:label="@string/title_hots"
         tools:layout="@layout/fragment_hots" />

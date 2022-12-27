@@ -1,12 +1,15 @@
 package com.example.kotlinhw3.ui.new
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kotlinhw3.StatusLoad
 import com.example.kotlinhw3.databinding.FragmentNewsBinding
 import com.example.kotlinhw3.ui.adapters.RVQuestionsListAdapter
 
@@ -35,16 +38,21 @@ class NewQuestionsFragment : Fragment() {
         viewModel.addItems(10)
 
         viewModel.questions.observe(viewLifecycleOwner){
-            if (it != null)
-                rvAdapter.addItems(it)
+            if (it != null && viewModel.status.value == StatusLoad.SUCCESS)
+                rvAdapter.refreshItems(it)
         }
 
+        viewModel.status.observe(viewLifecycleOwner) {
+            when (it) {
+                StatusLoad.SUCCESS -> {}
+                StatusLoad.LOADING -> {}
+                StatusLoad.ERROR -> {
+                    Log.d("HW3:QUESTIONS:NEW", "Error")
+                    Toast.makeText(context, "Internet: error", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
 
-
-//        val textView: TextView = binding.textHome
-//        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
         return root
     }
 

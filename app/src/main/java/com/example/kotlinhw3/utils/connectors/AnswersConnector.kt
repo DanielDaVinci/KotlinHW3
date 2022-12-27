@@ -1,12 +1,14 @@
 package com.example.kotlinhw3.utils.connectors
 
+import android.annotation.SuppressLint
 import android.content.Context
 import com.example.kotlinhw3.R
 import com.example.kotlinhw3.api.providers.AnswersProvider
 import com.example.kotlinhw3.api.requests.AnswersRequest
 
-object AnswersConnector
-{
+@SuppressLint("StaticFieldLeak")
+object AnswersConnector {
+
     private lateinit var request : AnswersRequest
 
     fun initialize(context: Context)

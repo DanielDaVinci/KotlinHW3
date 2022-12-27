@@ -6,15 +6,15 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Path
 
 interface QuestionsRequest
 {
-    @GET("questions/get/")
+    @GET("questions/get/{start}/{end}/{status}")
     suspend fun getItems(
-        @Query("start") start: Int,
-        @Query("end") end: Int,
-        @Query("status") status: String,
+        @Path("start") start: Int,
+        @Path("end") end: Int,
+        @Path("status") status: String,
     ) : QuestionsResponse
 
     companion object

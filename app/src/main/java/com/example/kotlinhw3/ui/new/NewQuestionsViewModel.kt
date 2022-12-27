@@ -1,14 +1,17 @@
 package com.example.kotlinhw3.ui.new
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.kotlinhw3.StatusLoad
 import com.example.kotlinhw3.models.QuestionsResponse
-import com.example.kotlinhw3.utils.MainApplication
+import com.example.kotlinhw3.utils.connectors.QuestionsConnector
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class NewQuestionsViewModel(private val state: SavedStateHandle) : ViewModel() {
+class NewQuestionsViewModel(
+    private val state: SavedStateHandle
+) : ViewModel() {
 
     private val questionsKey = "NEW_QUESTIONS"
     var questions: MutableLiveData<ArrayList<QuestionsResponse.Item>> = state.getLiveData(questionsKey, arrayListOf())
@@ -16,13 +19,10 @@ class NewQuestionsViewModel(private val state: SavedStateHandle) : ViewModel() {
     private val statusKey = "STATUS"
     var status: MutableLiveData<StatusLoad> = state.getLiveData(statusKey, StatusLoad.SUCCESS)
 
-    fun addItems(count: Int = 10)
+    fun addItems(count: Int)
     {
         viewModelScope.launch {
-            val offset = questions.value?.size ?: 0
-
-            questions.value = getItems(offset, count, "n")
-            questions.value?.addAll(questions.value!!)
+            questions.value = getItems(0, count, "n")
         }
     }
 
@@ -31,12 +31,13 @@ class NewQuestionsViewModel(private val state: SavedStateHandle) : ViewModel() {
         status.value = StatusLoad.LOADING
         try {
             val request = withContext(Dispatchers.IO) {
-                MainApplication.questionsConnector.provider().getItems(start, end, statusQuestions)
+                QuestionsConnector.provider().getItems(start, end, statusQuestions)
             }
             status.value = StatusLoad.SUCCESS
 
             return request.data
         } catch (error: Throwable) {
+            Log.d("HW3:ERRORS:NEW_QUESTIONS", error.toString())
             status.value = StatusLoad.ERROR
         }
 

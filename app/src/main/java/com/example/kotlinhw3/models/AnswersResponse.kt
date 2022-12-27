@@ -11,9 +11,8 @@ data class AnswersResponse(
     @Parcelize
     data class Item(
         @SerializedName("id") var id: Int = -1,
-        @SerializedName("text") var text: String = "",
+        @SerializedName("text") var text: String = "a",
         @SerializedName("correct") var status: Boolean = false,
         @SerializedName("profile") var profile_id: Int = -1,
-        @SerializedName("question") var question_id: Int = -1,
     ) : Parcelable
 }
